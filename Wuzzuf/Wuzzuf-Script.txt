@@ -1,0 +1,366 @@
+CREATE TABLE UserInfo (
+  UserID Number(9,0),
+  FirstName VarChar2(20) NOT NULL,
+  LastName VarChar2(20) NOT NULL,
+  Email VarChar2(40) UNIQUE NOT NULL,
+  Password VarChar2(30) NOT NULL,
+  PhoneNumber VarChar2(20) UNIQUE NOT NULL,
+  TypeID Number(9,0) NOT NULL,
+   CONSTRAINT pk_UserInfo PRIMARY KEY (
+        UserID
+    )
+);
+CREATE SEQUENCE UserIDSequence;
+CREATE TRIGGER AddedNewUser
+BEFORE INSERT ON UserInfo
+FOR EACH ROW
+BEGIN
+  SELECT UserIDSequence.nextval
+  INTO :new.UserID
+  FROM dual;
+END;
+/
+
+CREATE TABLE Applicants (
+  ApplicantID Number(9,0),
+  CityID Number(9,0) NOT NULL,
+  Description VarChar2(3000),
+  District VarChar2(20),
+  CONSTRAINT pk_Applicants PRIMARY KEY (
+        ApplicantID
+    )
+);
+
+CREATE TABLE JobPosts (
+  JobPostID Number(9,0),
+  Title VarChar2(50) NOT NULL,
+  Description VarChar2(3000),
+  Salary Number(9,0),
+  YearsOfExperience Number(9,0) NOT NULL,
+  PostDate Date NOT NULL,
+  EndDate Date NOT NULL,
+  CityID Number(9,0) NOT NULL,
+  JobTypeID Number(9,0) NOT NULL,
+  PostedBy Number(9,0) NOT NULL,
+  CareerID Number(9,0) NOT NULL,
+  CONSTRAINT pk_JobPosts PRIMARY KEY (
+        JobPostID
+    )
+);
+
+CREATE TABLE JobTypes (
+  JobTypeID Number(9,0),
+  TypeName VarChar2(30),
+  CONSTRAINT pk_JobType PRIMARY KEY (
+        JobTypeID
+    )
+);
+
+CREATE SEQUENCE JobPostIDSequence;
+CREATE TRIGGER AddedNewJobPost
+BEFORE INSERT ON JobPosts
+FOR EACH ROW
+BEGIN
+  SELECT JobPostIDSequence.nextval
+  INTO :new.JobPostID
+  FROM dual;
+END;
+/
+
+CREATE TABLE JobApplications (
+  ApplicantID Number(9,0),
+  JobPostID Number(9,0),
+  Rating Number(9,0),
+  ApplicationDate Date NOT NULL,
+  Status Number(9,0)Not NULL,
+  CONSTRAINT pk_JobApplications PRIMARY KEY (
+        ApplicantID,JobPostID
+    )
+);
+
+CREATE TABLE Companies (
+  CompanyID Number(9,0),
+  CompanyName VarChar2(50) NOT NULL,
+  Description VarChar2(3000) NOT NULL,
+  CompanyEmail VarChar2(40) UNIQUE NOT NULL,
+  CompanyPhoneNumber VarChar2(20) UNIQUE NOT NULL,
+  ApprovedBy Number(9,0),
+   CONSTRAINT pk_Companies PRIMARY KEY (
+        CompanyID
+    )
+);
+
+CREATE TABLE Recruiters (
+  CityID Number(9,0) NOT NULL,
+  CompanyID Number(9,0),
+  RecruiterID Number(9,0),
+   CONSTRAINT pk_Recruiters PRIMARY KEY (
+        RecruiterID
+    )
+);
+
+CREATE TABLE Careers (
+  CareerID Number(9,0),
+  CareerName VarChar2(40) UNIQUE NOT NULL,
+   CONSTRAINT pk_Careers PRIMARY KEY (
+        CareerID
+    )
+);
+
+CREATE SEQUENCE CareerIDSequence;
+CREATE TRIGGER AddedNewCareer
+BEFORE INSERT ON Careers
+FOR EACH ROW
+BEGIN
+  SELECT CareerIDSequence.nextval
+  INTO :new.CareerID
+  FROM dual;
+END;
+/
+
+CREATE TABLE CompanyCareers (
+  CompanyID Number(9,0),
+  CareerID Number(9,0),
+CONSTRAINT pk_CompanyCareers PRIMARY KEY (
+        CompanyID,CareerID
+    )
+);
+
+CREATE TABLE Admins (
+  AdminID Number(9,0),
+  CONSTRAINT pk_Admins PRIMARY KEY (
+        AdminID
+    )
+);
+
+CREATE TABLE CompanyBranches (
+  CityID Number(9,0),
+  CompanyID Number(9,0),
+  CONSTRAINT pk_CompanyBranches PRIMARY KEY (
+        CityID,CompanyID
+    )
+);
+
+CREATE TABLE Cities (
+  CityID Number(9,0),
+  CountryID Number(9,0) NOT NULL,
+  Name VarChar2(20) NOT NULL,
+  CONSTRAINT pk_Cities PRIMARY KEY (
+        CityID
+    )
+);
+
+CREATE SEQUENCE CityIDSequence;
+CREATE TRIGGER AddedNewCity
+BEFORE INSERT ON Cities
+FOR EACH ROW
+BEGIN
+  SELECT CityIDSequence.nextval
+  INTO :new.CityID
+  FROM dual;
+END;
+/
+
+CREATE TABLE UserTypes (
+  TypeID Number(9,0),
+  TypeName VarChar2(20) UNIQUE NOT NULL,
+  CONSTRAINT pk_UserTypes PRIMARY KEY (
+        TypeID
+    )
+);
+
+CREATE SEQUENCE TypeIDSequence;
+CREATE TRIGGER AddedNewUserType
+BEFORE INSERT ON UserTypes
+FOR EACH ROW
+BEGIN
+  SELECT TypeIDSequence.nextval
+  INTO :new.TypeID
+  FROM dual;
+END;
+/
+
+CREATE TABLE Status (
+  StatusID Number(9,0),
+  StatusDescription VarChar2(20) UNIQUE NOT NULL,
+  CONSTRAINT pk_Status PRIMARY KEY (
+        StatusID
+    )
+);
+
+CREATE SEQUENCE StatusIDSequence;
+CREATE TRIGGER AddedNewStatus
+BEFORE INSERT ON Status
+FOR EACH ROW
+BEGIN
+  SELECT StatusIDSequence.nextval
+  INTO :new.StatusID
+  FROM dual;
+END;
+/
+
+CREATE TABLE Countries (
+  CountryID Number(9,0),
+  Name VarChar2(20) UNIQUE NOT NULL,
+  CONSTRAINT pk_Countries PRIMARY KEY (
+        CountryID
+    )
+);
+
+CREATE SEQUENCE CountryIDSequence;
+CREATE TRIGGER AddedNewCountry
+BEFORE INSERT ON Countries
+FOR EACH ROW
+BEGIN
+  SELECT CountryIDSequence.nextval
+  INTO :new.CountryID
+  FROM dual;
+END;
+/
+
+CREATE TABLE Skills (
+  SkillID Number(9,0),
+  Name VarChar2(20) UNIQUE NOT NULL,
+  CONSTRAINT pk_Skills PRIMARY KEY (
+        SkillID
+    )
+);
+
+CREATE SEQUENCE SkillIDSequence;
+CREATE TRIGGER AddedNewSkill
+BEFORE INSERT ON Skills
+FOR EACH ROW
+BEGIN
+  SELECT SkillIDSequence.nextval
+  INTO :new.SkillID
+  FROM dual;
+END;
+/
+
+CREATE TABLE SkillLevels (
+  LevelID Number(9,0),
+  LevelNumber Number(9,0) NOT NULL,
+  LevelName VarChar2(20) UNIQUE NOT NULL,
+  CONSTRAINT pk_SkillLevels PRIMARY KEY (
+        LevelID
+    )
+);
+
+CREATE SEQUENCE LevelIDSequence;
+CREATE TRIGGER AddedNewLevel
+BEFORE INSERT ON SkillLevels
+FOR EACH ROW
+BEGIN
+  SELECT LevelIDSequence.nextval
+  INTO :new.LevelID
+  FROM dual;
+END;
+/
+
+CREATE TABLE ApplicantSkills (
+  SkillID Number(9,0),
+  ApplicantID Number(9,0),
+  LevelID Number(9,0) NOT NULL,
+  CONSTRAINT pk_ApplicantSkills PRIMARY KEY (
+        SkillID,ApplicantID
+    )
+);
+
+CREATE TABLE JobRequiredSkills (
+  JobPostID Number(9,0),
+  SkillID Number(9,0),
+    CONSTRAINT pk_JobRequiredSkills PRIMARY KEY (
+        JobPostID,SkillID
+    )
+);
+
+CREATE TABLE CompanyApprovalRequests (
+  CompanyID Number(9,0),
+  StatusID Number(9,0) NOT NULL,
+    CONSTRAINT pk_CompanyApprovalRequests PRIMARY KEY (
+        CompanyID
+    )
+);
+
+CREATE TABLE RecruiterWorkRequests (
+  RecruiterID Number(9,0),
+  CompanyID Number(9,0),
+  StatusID Number(9,0) NOT NULL,
+     CONSTRAINT pk_RecruiterWorkRequests PRIMARY KEY (
+        RecruiterID,CompanyID
+    )
+);
+
+CREATE SEQUENCE JobTypeIDSequence;
+CREATE TRIGGER AddedNewJobType
+BEFORE INSERT ON JobTypes
+FOR EACH ROW
+BEGIN
+  SELECT JobTypeIDSequence.nextval
+  INTO :new.JobTypeID
+  FROM dual;
+END;
+/
+
+ALTER TABLE Applicants ADD CONSTRAINT fk_Applicants_ApplicantID FOREIGN KEY (ApplicantID) REFERENCES UserInfo (UserID);
+
+ALTER TABLE JobApplications ADD CONSTRAINT fk_JobApplications_ApplicantID FOREIGN KEY (ApplicantID) REFERENCES Applicants (ApplicantID);
+
+ALTER TABLE JobApplications ADD CONSTRAINT fk_JobApplications_JobPostID FOREIGN KEY (JobPostID) REFERENCES JobPosts (JobPostID);
+
+ALTER TABLE Recruiters ADD CONSTRAINT fk_Recruiters_CompanyID FOREIGN KEY (CompanyID) REFERENCES Companies (CompanyID);
+
+ALTER TABLE Recruiters ADD CONSTRAINT fk_Recruiters_RecruiterID FOREIGN KEY (RecruiterID) REFERENCES UserInfo (UserID);
+
+ALTER TABLE CompanyCareers ADD CONSTRAINT fk_CompanyCareers_CompanyID FOREIGN KEY (CompanyID) REFERENCES Companies (CompanyID);
+
+ALTER TABLE CompanyCareers ADD CONSTRAINT fk_CompanyCareers_CareerID FOREIGN KEY (CareerID) REFERENCES Careers (CareerID);
+
+ALTER TABLE Admins ADD CONSTRAINT fk_Admins_AdminID FOREIGN KEY (AdminID) REFERENCES UserInfo (UserID);
+
+ALTER TABLE CompanyBranches ADD CONSTRAINT fk_CompanyBranches_CompanyID FOREIGN KEY (CompanyID) REFERENCES Companies (CompanyID);
+
+ALTER TABLE Applicants ADD CONSTRAINT fk_Applicants_CityID FOREIGN KEY (CityID) REFERENCES Cities (CityID);
+
+ALTER TABLE CompanyBranches ADD CONSTRAINT fk_CompanyBranches_CityID FOREIGN KEY (CityID) REFERENCES Cities (CityID);
+
+ALTER TABLE Recruiters ADD CONSTRAINT fk_Recruiters_CityID FOREIGN KEY (CityID) REFERENCES Cities (CityID);
+
+ALTER TABLE UserInfo ADD CONSTRAINT fk_UserInfo_TypeID FOREIGN KEY (TypeID) REFERENCES UserTypes (TypeID);
+
+ALTER TABLE JobApplications ADD CONSTRAINT fk_JobApplications_Status FOREIGN KEY (Status) REFERENCES Status (StatusID);
+
+ALTER TABLE Companies ADD CONSTRAINT fk_Companies_ApprovedBy FOREIGN KEY (ApprovedBy) REFERENCES Admins (AdminID);
+
+ALTER TABLE JobPosts ADD CONSTRAINT fk_JobPosts_CareerID FOREIGN KEY (CareerID) REFERENCES Careers (CareerID);
+
+ALTER TABLE JobPosts ADD CONSTRAINT fk_JobPosts_JobTypeID FOREIGN KEY (JobTypeID) REFERENCES JobTypes (JobTypeID);
+
+ALTER TABLE JobPosts ADD CONSTRAINT fk_JobPosts_PostedBy FOREIGN KEY (PostedBy) REFERENCES Recruiters (RecruiterID);
+
+ALTER TABLE JobPosts ADD CONSTRAINT fk_JobPosts_CityID FOREIGN KEY (CityID) REFERENCES Cities (CityID);
+
+ALTER TABLE Cities ADD CONSTRAINT fk_Cities_CountryID FOREIGN KEY (CountryID) REFERENCES Countries (CountryID);
+
+ALTER TABLE ApplicantSkills ADD CONSTRAINT fk_ApplicantSkills_LevelID FOREIGN KEY (LevelID) REFERENCES SkillLevels (LevelID);
+
+ALTER TABLE ApplicantSkills ADD CONSTRAINT fk_ApplicantSkills_SkillID FOREIGN KEY (SkillID) REFERENCES Skills (SkillID);
+
+ALTER TABLE JobRequiredSkills ADD CONSTRAINT fk_JobRequiredSkills_JobPostID FOREIGN KEY (JobPostID) REFERENCES JobPosts (JobPostID);
+
+ALTER TABLE JobRequiredSkills ADD CONSTRAINT fk_JobRequiredSkills_SkillID FOREIGN KEY (SkillID) REFERENCES Skills (SkillID);
+
+ALTER TABLE ApplicantSkills ADD CONSTRAINT fk_ApplicantSkills_ApplicantID FOREIGN KEY (ApplicantID) REFERENCES Applicants (ApplicantID);
+
+ALTER TABLE CompanyApprovalRequests ADD CONSTRAINT fk_CAR_CompanyID FOREIGN KEY (CompanyID) REFERENCES Companies (CompanyID);
+
+ALTER TABLE RecruiterWorkRequests ADD CONSTRAINT fk_RWR_RecruiterID FOREIGN KEY (RecruiterID) REFERENCES Recruiters (RecruiterID);
+
+ALTER TABLE RecruiterWorkRequests ADD CONSTRAINT fk_RWR_CompanyID FOREIGN KEY (CompanyID) REFERENCES Companies (CompanyID);
+
+ALTER TABLE Companies ADD CONSTRAINT fk_Companies_CompanyID FOREIGN KEY (CompanyID) REFERENCES UserInfo (UserID);
+
+ALTER TABLE RecruiterWorkRequests ADD CONSTRAINT fk_RWR_StatusID FOREIGN KEY (StatusID) REFERENCES Status (StatusID);
+
+ALTER TABLE CompanyApprovalRequests ADD CONSTRAINT fk_CAR_StatusID FOREIGN KEY (StatusID) REFERENCES Status (StatusID);
+

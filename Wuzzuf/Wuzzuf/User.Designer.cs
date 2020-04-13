@@ -29,38 +29,42 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.firstNameTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Last = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.LastNameTextBox = new System.Windows.Forms.TextBox();
-            this.EmailTextbox = new System.Windows.Forms.TextBox();
-            this.TypeTextBox = new System.Windows.Forms.TextBox();
-            this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.PhoneTextBox = new System.Windows.Forms.TextBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
+            this.TypeTextBox = new System.Windows.Forms.TextBox();
+            this.EmailTextbox = new System.Windows.Forms.TextBox();
+            this.LastNameTextBox = new System.Windows.Forms.TextBox();
+            this.signUpButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Last = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.EmailLTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.PasswordLTextBox = new System.Windows.Forms.TextBox();
-            this.passdatatextbox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.updateLNametextBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.updateFNametextBox = new System.Windows.Forms.TextBox();
+            this.deleteUserButton = new System.Windows.Forms.Button();
+            this.editButton3 = new System.Windows.Forms.Button();
             this.phonedatatextbox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.passdatatextbox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.signInButton = new System.Windows.Forms.Button();
+            this.PasswordLTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.EmailLTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -70,7 +74,7 @@
             this.groupBox1.Controls.Add(this.TypeTextBox);
             this.groupBox1.Controls.Add(this.EmailTextbox);
             this.groupBox1.Controls.Add(this.LastNameTextBox);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.signUpButton);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -84,59 +88,51 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sign Up";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // firstNameTextBox
+            // PhoneTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(110, 21);
-            this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(100, 22);
-            this.firstNameTextBox.TabIndex = 0;
+            this.PhoneTextBox.Location = new System.Drawing.Point(550, 72);
+            this.PhoneTextBox.Name = "PhoneTextBox";
+            this.PhoneTextBox.Size = new System.Drawing.Size(165, 22);
+            this.PhoneTextBox.TabIndex = 17;
             // 
-            // label1
+            // PasswordTextBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "First Name: ";
+            this.PasswordTextBox.Location = new System.Drawing.Point(110, 75);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.Size = new System.Drawing.Size(100, 22);
+            this.PasswordTextBox.TabIndex = 16;
             // 
-            // Last
+            // TypeTextBox
             // 
-            this.Last.AutoSize = true;
-            this.Last.Location = new System.Drawing.Point(233, 24);
-            this.Last.Name = "Last";
-            this.Last.Size = new System.Drawing.Size(84, 17);
-            this.Last.TabIndex = 3;
-            this.Last.Text = "Last Name: ";
+            this.TypeTextBox.Location = new System.Drawing.Point(323, 75);
+            this.TypeTextBox.Name = "TypeTextBox";
+            this.TypeTextBox.Size = new System.Drawing.Size(100, 22);
+            this.TypeTextBox.TabIndex = 15;
             // 
-            // label2
+            // EmailTextbox
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(450, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 17);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Email: ";
+            this.EmailTextbox.Location = new System.Drawing.Point(550, 24);
+            this.EmailTextbox.Name = "EmailTextbox";
+            this.EmailTextbox.Size = new System.Drawing.Size(165, 22);
+            this.EmailTextbox.TabIndex = 14;
             // 
-            // label3
+            // LastNameTextBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 17);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Password: ";
+            this.LastNameTextBox.Location = new System.Drawing.Point(323, 24);
+            this.LastNameTextBox.Name = "LastNameTextBox";
+            this.LastNameTextBox.Size = new System.Drawing.Size(100, 22);
+            this.LastNameTextBox.TabIndex = 13;
             // 
-            // label4
+            // signUpButton
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(233, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 17);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Type:";
+            this.signUpButton.Location = new System.Drawing.Point(610, 123);
+            this.signUpButton.Name = "signUpButton";
+            this.signUpButton.Size = new System.Drawing.Size(105, 31);
+            this.signUpButton.TabIndex = 12;
+            this.signUpButton.Text = "Sign Up ";
+            this.signUpButton.UseVisualStyleBackColor = true;
+            this.signUpButton.Click += new System.EventHandler(this.signUpButton_Click);
             // 
             // label5
             // 
@@ -147,95 +143,215 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Phone NO:";
             // 
-            // button1
+            // label4
             // 
-            this.button1.Location = new System.Drawing.Point(610, 123);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 31);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Sign Up ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(233, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 17);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Type:";
             // 
-            // LastNameTextBox
+            // label3
             // 
-            this.LastNameTextBox.Location = new System.Drawing.Point(323, 24);
-            this.LastNameTextBox.Name = "LastNameTextBox";
-            this.LastNameTextBox.Size = new System.Drawing.Size(100, 22);
-            this.LastNameTextBox.TabIndex = 13;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 75);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 17);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Password: ";
             // 
-            // EmailTextbox
+            // label2
             // 
-            this.EmailTextbox.Location = new System.Drawing.Point(550, 24);
-            this.EmailTextbox.Name = "EmailTextbox";
-            this.EmailTextbox.Size = new System.Drawing.Size(165, 22);
-            this.EmailTextbox.TabIndex = 14;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(450, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 17);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Email: ";
             // 
-            // TypeTextBox
+            // Last
             // 
-            this.TypeTextBox.Location = new System.Drawing.Point(323, 75);
-            this.TypeTextBox.Name = "TypeTextBox";
-            this.TypeTextBox.Size = new System.Drawing.Size(100, 22);
-            this.TypeTextBox.TabIndex = 15;
+            this.Last.AutoSize = true;
+            this.Last.Location = new System.Drawing.Point(233, 24);
+            this.Last.Name = "Last";
+            this.Last.Size = new System.Drawing.Size(84, 17);
+            this.Last.TabIndex = 3;
+            this.Last.Text = "Last Name: ";
             // 
-            // PasswordTextBox
+            // label1
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(110, 75);
-            this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.Size = new System.Drawing.Size(100, 22);
-            this.PasswordTextBox.TabIndex = 16;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "First Name: ";
             // 
-            // PhoneTextBox
+            // firstNameTextBox
             // 
-            this.PhoneTextBox.Location = new System.Drawing.Point(550, 72);
-            this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.Size = new System.Drawing.Size(165, 22);
-            this.PhoneTextBox.TabIndex = 17;
+            this.firstNameTextBox.Location = new System.Drawing.Point(110, 21);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(100, 22);
+            this.firstNameTextBox.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Location = new System.Drawing.Point(12, 200);
+            this.groupBox2.Location = new System.Drawing.Point(12, 190);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(736, 255);
+            this.groupBox2.Size = new System.Drawing.Size(736, 265);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Profile";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.PasswordLTextBox);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.EmailLTextBox);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(23, 36);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(692, 103);
-            this.groupBox3.TabIndex = 17;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Login";
-            // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button4);
-            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.updateLNametextBox);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.updateFNametextBox);
+            this.groupBox4.Controls.Add(this.deleteUserButton);
+            this.groupBox4.Controls.Add(this.editButton3);
             this.groupBox4.Controls.Add(this.phonedatatextbox);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.passdatatextbox);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Location = new System.Drawing.Point(23, 145);
+            this.groupBox4.Location = new System.Drawing.Point(388, 16);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(692, 95);
+            this.groupBox4.Size = new System.Drawing.Size(327, 224);
             this.groupBox4.TabIndex = 18;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Data";
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
+            // 
+            // updateLNametextBox
+            // 
+            this.updateLNametextBox.Location = new System.Drawing.Point(121, 105);
+            this.updateLNametextBox.Name = "updateLNametextBox";
+            this.updateLNametextBox.Size = new System.Drawing.Size(165, 22);
+            this.updateLNametextBox.TabIndex = 27;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(19, 108);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(84, 17);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Last Name: ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(19, 80);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(84, 17);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "First Name: ";
+            // 
+            // updateFNametextBox
+            // 
+            this.updateFNametextBox.Location = new System.Drawing.Point(121, 77);
+            this.updateFNametextBox.Name = "updateFNametextBox";
+            this.updateFNametextBox.Size = new System.Drawing.Size(166, 22);
+            this.updateFNametextBox.TabIndex = 24;
+            // 
+            // deleteUserButton
+            // 
+            this.deleteUserButton.Location = new System.Drawing.Point(187, 161);
+            this.deleteUserButton.Name = "deleteUserButton";
+            this.deleteUserButton.Size = new System.Drawing.Size(99, 37);
+            this.deleteUserButton.TabIndex = 23;
+            this.deleteUserButton.Text = "Delete User";
+            this.deleteUserButton.UseVisualStyleBackColor = true;
+            this.deleteUserButton.Click += new System.EventHandler(this.deleteUserButton_Click);
+            // 
+            // editButton3
+            // 
+            this.editButton3.Location = new System.Drawing.Point(22, 162);
+            this.editButton3.Name = "editButton3";
+            this.editButton3.Size = new System.Drawing.Size(101, 35);
+            this.editButton3.TabIndex = 22;
+            this.editButton3.Text = "Edit";
+            this.editButton3.UseVisualStyleBackColor = true;
+            this.editButton3.Click += new System.EventHandler(this.EditButton3_Click);
+            // 
+            // phonedatatextbox
+            // 
+            this.phonedatatextbox.Location = new System.Drawing.Point(121, 49);
+            this.phonedatatextbox.Name = "phonedatatextbox";
+            this.phonedatatextbox.Size = new System.Drawing.Size(165, 22);
+            this.phonedatatextbox.TabIndex = 21;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(18, 54);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(78, 17);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Phone NO:";
+            // 
+            // passdatatextbox
+            // 
+            this.passdatatextbox.Location = new System.Drawing.Point(121, 21);
+            this.passdatatextbox.Name = "passdatatextbox";
+            this.passdatatextbox.Size = new System.Drawing.Size(165, 22);
+            this.passdatatextbox.TabIndex = 21;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(19, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 17);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Password: ";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.signInButton);
+            this.groupBox3.Controls.Add(this.PasswordLTextBox);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.EmailLTextBox);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Location = new System.Drawing.Point(62, 16);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(294, 224);
+            this.groupBox3.TabIndex = 17;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Login";
+            // 
+            // signInButton
+            // 
+            this.signInButton.Location = new System.Drawing.Point(65, 133);
+            this.signInButton.Name = "signInButton";
+            this.signInButton.Size = new System.Drawing.Size(172, 27);
+            this.signInButton.TabIndex = 19;
+            this.signInButton.Text = "Sign In";
+            this.signInButton.UseVisualStyleBackColor = true;
+            this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
+            // 
+            // PasswordLTextBox
+            // 
+            this.PasswordLTextBox.Location = new System.Drawing.Point(112, 83);
+            this.PasswordLTextBox.Name = "PasswordLTextBox";
+            this.PasswordLTextBox.Size = new System.Drawing.Size(165, 22);
+            this.PasswordLTextBox.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(29, 86);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 17);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Password: ";
             // 
             // EmailLTextBox
             // 
-            this.EmailLTextBox.Location = new System.Drawing.Point(85, 34);
+            this.EmailLTextBox.Location = new System.Drawing.Point(112, 34);
             this.EmailLTextBox.Name = "EmailLTextBox";
             this.EmailLTextBox.Size = new System.Drawing.Size(165, 22);
             this.EmailLTextBox.TabIndex = 16;
@@ -248,82 +364,6 @@
             this.label6.Size = new System.Drawing.Size(50, 17);
             this.label6.TabIndex = 15;
             this.label6.Text = "Email: ";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(510, 34);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(172, 22);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Sign In";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(256, 37);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 17);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Password: ";
-            // 
-            // PasswordLTextBox
-            // 
-            this.PasswordLTextBox.Location = new System.Drawing.Point(339, 34);
-            this.PasswordLTextBox.Name = "PasswordLTextBox";
-            this.PasswordLTextBox.Size = new System.Drawing.Size(165, 22);
-            this.PasswordLTextBox.TabIndex = 18;
-            // 
-            // passdatatextbox
-            // 
-            this.passdatatextbox.Location = new System.Drawing.Point(102, 41);
-            this.passdatatextbox.Name = "passdatatextbox";
-            this.passdatatextbox.Size = new System.Drawing.Size(100, 22);
-            this.passdatatextbox.TabIndex = 21;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(19, 44);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 17);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "Password: ";
-            // 
-            // phonedatatextbox
-            // 
-            this.phonedatatextbox.Location = new System.Drawing.Point(300, 41);
-            this.phonedatatextbox.Name = "phonedatatextbox";
-            this.phonedatatextbox.Size = new System.Drawing.Size(118, 22);
-            this.phonedatatextbox.TabIndex = 21;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(216, 44);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(78, 17);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Phone NO:";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(430, 41);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(120, 23);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Edit";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(566, 41);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(120, 23);
-            this.button4.TabIndex = 23;
-            this.button4.Text = "Delete";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // User
             // 
@@ -338,10 +378,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -353,7 +393,7 @@
         private System.Windows.Forms.Label Last;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox firstNameTextBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button signUpButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -366,16 +406,20 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button signInButton;
         private System.Windows.Forms.TextBox PasswordLTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox EmailLTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button editButton3;
         private System.Windows.Forms.TextBox phonedatatextbox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox passdatatextbox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button deleteUserButton;
+        private System.Windows.Forms.TextBox updateLNametextBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox updateFNametextBox;
     }
 }

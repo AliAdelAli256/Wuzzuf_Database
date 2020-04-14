@@ -30,5 +30,11 @@ namespace Wuzzuf
             ViewData View = new ViewData();
             View.Show();
         }
+
+        private void openReports_Click(object sender, EventArgs e)
+        {
+            ChooseReport reports = new ChooseReport();
+            reports.Show();
+        }
     }
 }

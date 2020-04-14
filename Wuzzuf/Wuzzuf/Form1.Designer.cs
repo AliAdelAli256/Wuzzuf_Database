@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.EditButton = new System.Windows.Forms.Button();
             this.ViewButton = new System.Windows.Forms.Button();
+            this.openReports = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -47,9 +48,9 @@
             // EditButton
             // 
             this.EditButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditButton.Location = new System.Drawing.Point(311, 278);
+            this.EditButton.Location = new System.Drawing.Point(271, 253);
             this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(176, 55);
+            this.EditButton.Size = new System.Drawing.Size(254, 55);
             this.EditButton.TabIndex = 1;
             this.EditButton.Text = "Edit in Database";
             this.EditButton.UseVisualStyleBackColor = true;
@@ -58,7 +59,7 @@
             // ViewButton
             // 
             this.ViewButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ViewButton.Location = new System.Drawing.Point(271, 174);
+            this.ViewButton.Location = new System.Drawing.Point(271, 175);
             this.ViewButton.Name = "ViewButton";
             this.ViewButton.Size = new System.Drawing.Size(254, 55);
             this.ViewButton.TabIndex = 2;
@@ -66,11 +67,23 @@
             this.ViewButton.UseVisualStyleBackColor = true;
             this.ViewButton.Click += new System.EventHandler(this.ViewButton_Click);
             // 
+            // openReports
+            // 
+            this.openReports.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openReports.Location = new System.Drawing.Point(271, 330);
+            this.openReports.Name = "openReports";
+            this.openReports.Size = new System.Drawing.Size(254, 55);
+            this.openReports.TabIndex = 3;
+            this.openReports.Text = "Reports";
+            this.openReports.UseVisualStyleBackColor = true;
+            this.openReports.Click += new System.EventHandler(this.openReports_Click);
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.openReports);
             this.Controls.Add(this.ViewButton);
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.label1);
@@ -86,6 +99,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button ViewButton;
+        private System.Windows.Forms.Button openReports;
     }
 }
 

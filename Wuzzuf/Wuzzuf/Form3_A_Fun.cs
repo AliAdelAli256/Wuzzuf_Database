@@ -21,16 +21,10 @@ namespace Wuzzuf
         public Form3_A_Fun()
         {
             InitializeComponent();
-
-
-
-
         }
 
         private void showCompaniesButton_Click(object sender, EventArgs e)
-        {
-           
-
+        {         
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
             cmd.CommandText = "select COMPANYNAME from companies";

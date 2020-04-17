@@ -99,6 +99,12 @@
       <DependentUpon>JobPostsReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Jop_Posts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jop_Posts.Designer.cs">
+      <DependentUpon>Jop_Posts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JobsReportsForm.cs">
@@ -141,6 +147,9 @@
     <EmbeddedResource Include="JobPostsReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>JobPostsReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jop_Posts.resx">
+      <DependentUpon>Jop_Posts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

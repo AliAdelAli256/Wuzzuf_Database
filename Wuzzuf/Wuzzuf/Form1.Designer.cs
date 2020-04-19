@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.EditButton = new System.Windows.Forms.Button();
             this.ViewButton = new System.Windows.Forms.Button();
             this.openReports = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -45,17 +44,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome to Wuzzuf Form";
             // 
-            // EditButton
-            // 
-            this.EditButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditButton.Location = new System.Drawing.Point(271, 253);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(254, 55);
-            this.EditButton.TabIndex = 1;
-            this.EditButton.Text = "Edit in Database";
-            this.EditButton.UseVisualStyleBackColor = true;
-            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
-            // 
             // ViewButton
             // 
             this.ViewButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -70,7 +58,7 @@
             // openReports
             // 
             this.openReports.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.openReports.Location = new System.Drawing.Point(271, 330);
+            this.openReports.Location = new System.Drawing.Point(271, 273);
             this.openReports.Name = "openReports";
             this.openReports.Size = new System.Drawing.Size(254, 55);
             this.openReports.TabIndex = 3;
@@ -85,7 +73,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.openReports);
             this.Controls.Add(this.ViewButton);
-            this.Controls.Add(this.EditButton);
             this.Controls.Add(this.label1);
             this.Name = "Main_Form";
             this.Text = "Wuzzuf Form";
@@ -97,7 +84,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button ViewButton;
         private System.Windows.Forms.Button openReports;
     }

@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.jobTypesComboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@
             // selectColumnComboBox
             // 
             this.selectColumnComboBox.FormattingEnabled = true;
-            this.selectColumnComboBox.Location = new System.Drawing.Point(488, 74);
+            this.selectColumnComboBox.Location = new System.Drawing.Point(513, 74);
             this.selectColumnComboBox.Name = "selectColumnComboBox";
             this.selectColumnComboBox.Size = new System.Drawing.Size(121, 24);
             this.selectColumnComboBox.TabIndex = 2;
@@ -69,7 +70,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 18);
+            this.label1.Location = new System.Drawing.Point(14, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 17);
             this.label1.TabIndex = 3;
@@ -78,7 +79,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(224, 16);
+            this.button1.Location = new System.Drawing.Point(222, 71);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 23);
             this.button1.TabIndex = 5;
@@ -89,16 +90,26 @@
             // jobTypesComboBox
             // 
             this.jobTypesComboBox.FormattingEnabled = true;
-            this.jobTypesComboBox.Location = new System.Drawing.Point(97, 15);
+            this.jobTypesComboBox.Location = new System.Drawing.Point(95, 70);
             this.jobTypesComboBox.Name = "jobTypesComboBox";
             this.jobTypesComboBox.Size = new System.Drawing.Size(121, 24);
             this.jobTypesComboBox.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(421, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 17);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Companies: ";
             // 
             // Form3_A_Fun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.jobTypesComboBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -122,5 +133,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox jobTypesComboBox;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
             this.rowsSelected = new System.Windows.Forms.DataGridView();
+            this.SaveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rowsSelected)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +93,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(629, 28);
+            this.searchButton.Location = new System.Drawing.Point(605, 28);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 7;
@@ -109,11 +110,23 @@
             this.rowsSelected.Size = new System.Drawing.Size(776, 367);
             this.rowsSelected.TabIndex = 8;
             // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(695, 28);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.TabIndex = 9;
+            this.SaveButton.Text = "save";
+            this.SaveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click_1);
+            // 
             // ViewData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.rowsSelected);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.label2);
@@ -141,5 +154,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.DataGridView rowsSelected;
+        private System.Windows.Forms.Button SaveButton;
     }
 }

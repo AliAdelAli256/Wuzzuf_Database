@@ -49,7 +49,6 @@ namespace Wuzzuf
                 MessageBox.Show("An error has occured: " + ex.Message);
                 return;
             }
-            MessageBox.Show(mx.ToString());
 
 
             OracleCommand cmd = new OracleCommand();

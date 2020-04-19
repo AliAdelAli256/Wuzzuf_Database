@@ -15,7 +15,7 @@ namespace Wuzzuf
     public partial class User : Form
     {
 
-        string ordb = "data source=orcl; user id=scott; password=tiger;";
+        string ordb = "data source=orcl; user id=scott; password=scott;";
         OracleConnection conn;
         UserInfo userInfo;
 
@@ -33,10 +33,30 @@ namespace Wuzzuf
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
+            OracleCommand cmd1 = new OracleCommand();
+            cmd1.Connection = conn;
+            cmd1.CommandType = CommandType.StoredProcedure;
+            cmd1.CommandText = "getmax";
+            cmd1.Parameters.Add("id", OracleDbType.Int32, ParameterDirection.Output);
+            int mx = 0;
+            cmd1.ExecuteNonQuery();
+            try
+            {
+                mx = Convert.ToInt32(cmd1.Parameters["id"].Value.ToString()) + 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occured: " + ex.Message);
+                return;
+            }
+            MessageBox.Show(mx.ToString());
+
+
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
-            cmd.CommandText = @"Insert into USERINFO (firstname, lastname, email, password, phonenumber, typeid) 
-                                            values(:firstName, :lastname, :email, :password, :phonenmber, :typeid)";
+            cmd.CommandText = @"Insert into USERINFO (userid, firstname, lastname, email, password, phonenumber, typeid) 
+                                            values(:id, :firstName, :lastname, :email, :password, :phonenmber, :typeid)";
+            cmd.Parameters.Add("id", mx.ToString());
             cmd.Parameters.Add("firstName", firstNameTextBox.Text.ToString());
             cmd.Parameters.Add("lastname", LastNameTextBox.Text.ToString());
             cmd.Parameters.Add("email", EmailTextbox.Text.ToString());

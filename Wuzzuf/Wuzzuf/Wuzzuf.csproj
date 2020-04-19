@@ -69,6 +69,12 @@
     <Compile Include="ChooseReport.Designer.cs">
       <DependentUpon>ChooseReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Company.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Company.Designer.cs">
+      <DependentUpon>Company.cs</DependentUpon>
+    </Compile>
     <Compile Include="DaysLeftForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,12 @@
       <DependentUpon>TimeToApply.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User.Designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChooseReport.resx">
       <DependentUpon>ChooseReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Company.resx">
+      <DependentUpon>Company.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DaysLeftForm.resx">
       <DependentUpon>DaysLeftForm.cs</DependentUpon>
@@ -157,6 +172,9 @@
     <EmbeddedResource Include="TimeToApply.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>TimeToApply.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User.resx">
+      <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewData.resx">
       <DependentUpon>ViewData.cs</DependentUpon>

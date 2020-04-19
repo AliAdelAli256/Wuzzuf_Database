@@ -13,7 +13,7 @@ namespace Wuzzuf
 {
     public partial class Jop_Posts : Form
     {
-        string ordb = "data source=orcl; user id=scott; password=tiger;";
+        string ordb = "data source=orcl; user id=scott; password=scott;";
         OracleConnection conn;
         string jobPostID = "";
 

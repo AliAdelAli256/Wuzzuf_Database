@@ -19,12 +19,6 @@ namespace Wuzzuf
             InitializeComponent();
         }
 
-        private void EditButton_Click(object sender, EventArgs e)
-        {
-            Form2 edit = new Form2();
-            edit.Show();
-        }
-
         private void ViewButton_Click(object sender, EventArgs e)
         {
             ViewData View = new ViewData();

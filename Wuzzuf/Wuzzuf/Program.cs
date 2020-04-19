@@ -16,7 +16,7 @@ namespace Wuzzuf
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Jop_Posts());
+            Application.Run(new Main_Form());
         }
     }
 }

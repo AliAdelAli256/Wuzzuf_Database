@@ -14,6 +14,10 @@ namespace Wuzzuf
     public partial class ViewData : Form
     {
         string conn = "Data Source=orcl; User ID=scott; Password=scott;";
+        string cmd = "";
+        OracleDataAdapter Adapter;
+        DataSet tables;
+        OracleCommandBuilder CmdBuilder;
         public ViewData()
         {
             InitializeComponent();
@@ -21,10 +25,10 @@ namespace Wuzzuf
 
         private void Tables_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string cmd = "SELECT * FROM " + tableName.SelectedItem.ToString() + ";";
+            cmd = "SELECT * FROM " + tableName.SelectedItem.ToString() + ";";
 
-            DataSet tables = new DataSet();
-            OracleDataAdapter Adapter = new OracleDataAdapter(cmd, conn);
+            Adapter = new OracleDataAdapter(cmd, conn);
+            tables = new DataSet();
             Adapter.Fill(tables);
             columnName.Items.Clear();
 
@@ -36,10 +40,10 @@ namespace Wuzzuf
 
         private void ViewData_Load(object sender, EventArgs e)
         {
-            string cmd = "SELECT table_name FROM user_tables;";
+            cmd = "SELECT table_name FROM user_tables;";
 
-            DataSet tables = new DataSet();
-            OracleDataAdapter Adapter = new OracleDataAdapter(cmd, conn);
+            Adapter = new OracleDataAdapter(cmd, conn);
+            tables = new DataSet();
             Adapter.Fill(tables);
 
             for (int i = 0; i < tables.Tables[0].Rows.Count; i++)
@@ -51,12 +55,37 @@ namespace Wuzzuf
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            string cmd = "SELECT * FROM " + tableName.SelectedItem.ToString() +" where " + columnName.SelectedItem.ToString() + " = " + "\'" +conditionValue.Text.ToString() + "\'";
 
-            DataSet tables = new DataSet();
-            OracleDataAdapter Adapter = new OracleDataAdapter(cmd, conn);
+            if (tableName.SelectedIndex > -1 && columnName.SelectedIndex == -1)
+            {
+                cmd = "SELECT * FROM " + tableName.SelectedItem.ToString() + ";";
+            }
+            else if (tableName.SelectedIndex > -1 && columnName.SelectedIndex > -1 && string.IsNullOrEmpty(conditionValue.Text))
+            {
+                cmd = "SELECT " + columnName.SelectedItem.ToString() + " FROM " + tableName.SelectedItem.ToString();
+            }
+            else if (tableName.SelectedIndex > -1 && columnName.SelectedIndex > -1 && !string.IsNullOrEmpty(conditionValue.Text))
+            {
+                cmd = "SELECT * FROM " + tableName.SelectedItem.ToString() + " where " + columnName.SelectedItem.ToString() + " = " + "\'" + conditionValue.Text.ToString() + "\'";
+            }
+            Adapter = new OracleDataAdapter(cmd, conn);
+            tables = new DataSet();
             Adapter.Fill(tables);
             rowsSelected.DataSource = tables.Tables[0];
+        }
+
+        private void SaveButton_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                CmdBuilder = new OracleCommandBuilder(Adapter);
+                Adapter.Update(tables.Tables[0]);
+                MessageBox.Show("Changes saved.");
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
     }
 }

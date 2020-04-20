@@ -165,6 +165,31 @@ namespace Wuzzuf
             cmd.Parameters.Add("city_id", int.Parse(cityid));
 
             // TODO connect to userinfo class in user form 
+            OracleCommand cmd2 = new OracleCommand();
+            cmd2.Connection = conn;
+            cmd2.CommandText = "select * from recruiters where id =:id";
+            cmd2.CommandType = CommandType.Text;
+            UserInfo LoggedIn = User.userInfo;
+
+            if (LoggedIn != null)
+            {
+                cmd2.Parameters.Add("id", LoggedIn.id);
+                OracleDataReader dr =  cmd2.ExecuteReader();
+
+                if(!dr.HasRows)
+                {
+                    MessageBox.Show("Recruiter Not Found");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("please login");
+                return;
+            }
+
+            
+
             cmd.Parameters.Add("postedby_id", int.Parse("3"));
             cmd.Parameters.Add("postDate", postDateTimePicker.Value);
             cmd.Parameters.Add("endDate", DateTime.Now);

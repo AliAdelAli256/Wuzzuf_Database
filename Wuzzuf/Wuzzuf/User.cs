@@ -17,7 +17,7 @@ namespace Wuzzuf
 
         string ordb = "data source=orcl; user id=scott; password=scott;";
         OracleConnection conn;
-        UserInfo userInfo;
+        public static  UserInfo userInfo;
 
         public User()
         {

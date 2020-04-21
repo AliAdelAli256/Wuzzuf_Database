@@ -113,33 +113,22 @@ namespace Wuzzuf
 
             if (Email != "" && pass != "")
             {
-                List<string> commands = new List<string>();
-
-
-                commands.Add("delete from jobapplications where jobapplications.applicantid = (Select userid from userinfo where email = 'AhmedEmail' and password = '123')");
-                commands.Add("delete from applicantskills where applicantskills.applicantid = (Select userid from userinfo where email = 'AhmedEmail' and password = '123')");
-                commands.Add("delete from applicants where applicants.applicantid = (Select userid from userinfo where email = 'AhmedEmail' and password = '123')");
-                commands.Add("delete from userinfo where userinfo.userid = (Select userid from userinfo where email = 'AhmedEmail' and password = '123')");
-                int i=0;
                 try
                 {
-                    for (i = 0; i < commands.Count; i++)
-                    {
-                        cmd.CommandText = commands[i];
-                        cmd.Parameters.Add("email", Email);
-                        cmd.Parameters.Add("pass", pass);
+                    cmd.CommandText = "delete from userinfo where userinfo.userid =: id";
+                    cmd.Parameters.Add("id", userInfo.id);
 
-                        int r = cmd.ExecuteNonQuery();
-                        if (r == -1)                    
-                            MessageBox.Show("Something went wrong"); 
-                    }
+                    int r = cmd.ExecuteNonQuery();
+                    if (r == -1)                    
+                        MessageBox.Show("Something went wrong"); 
+                    
 
                     MessageBox.Show("User Deleted Successfully");
                     clearFields();
 
                 }catch (Exception ex)
                 {
-                    MessageBox.Show("Something went wrong: " + i.ToString() + ex.Message); 
+                    MessageBox.Show("Something went wrong: " + ex.Message); 
                 }
 
             }

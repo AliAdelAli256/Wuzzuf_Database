@@ -31,6 +31,7 @@ namespace Wuzzuf
             cmd.CommandType = CommandType.Text;
 
             OracleDataReader dr = cmd.ExecuteReader();
+            selectColumnComboBox.Items.Clear();
             while (dr.Read())
             {
                 selectColumnComboBox.Items.Add(dr[0]);
@@ -75,10 +76,10 @@ namespace Wuzzuf
                                 WHERE jobtypeid = (Select JOBTYPEID FROM jobtypes Where typename = :jobtype)";
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("jobtype", jobTypesComboBox.Items[jobTypesComboBox.SelectedIndex].ToString());
-            DataSet tables = new DataSet();
-            OracleDataAdapter Adapter = new OracleDataAdapter(cmd);
-            Adapter.Fill(tables);
-            DataGrid.DataSource = tables.Tables[0];
+            OracleDataReader dr = cmd.ExecuteReader();
+            DataTable dataTable = new DataTable();
+            dataTable.Load(dr);
+            DataGrid.DataSource = dataTable;
         }
     }
 }

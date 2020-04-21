@@ -27,7 +27,6 @@ namespace Wuzzuf
             conn = new OracleConnection(ordb);
             conn.Open();
         }
-
         private void FilterJobsButton_Click(object sender, EventArgs e)
         {
             OracleCommand cmd = new OracleCommand();
@@ -41,6 +40,8 @@ namespace Wuzzuf
 
             OracleDataReader dr = cmd.ExecuteReader();
 
+            DataTable dataTable = new DataTable();
+            dataTable.Load(dr);
             /*
             while (dr.Read())
             {
@@ -51,24 +52,18 @@ namespace Wuzzuf
             }
             */
 
-            DataSet tables = new DataSet();
-            OracleDataAdapter Adapter = new OracleDataAdapter(cmd);
-            Adapter.Fill(tables);
-            jobsDataGridView.DataSource = tables.Tables[0];
-
+            //DataSet tables = new DataSet();
+            //OracleDataAdapter Adapter = new OracleDataAdapter(cmd);
+            //Adapter.Fill(tables);
+            //jobsDataGridView.DataSource = tables.Tables[0];
+            jobsDataGridView.DataSource = dataTable;
         }
 
         private void ViewAllButton_Click(object sender, EventArgs e)
         {
-            OracleCommand cmd = new OracleCommand();
-            cmd.Connection = conn;
-            cmd.CommandText = @"SELECT * FROM jobposts";
-            cmd.CommandType = CommandType.Text;
-            DataSet tables = new DataSet();
-            OracleDataAdapter Adapter = new OracleDataAdapter(cmd);
-            Adapter.Fill(tables);
-            jobsDataGridView.DataSource = tables.Tables[0];
+            refresh();
         }
+
 
         private void JobsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -115,6 +110,21 @@ namespace Wuzzuf
             dr3.Close();
         }
 
+        void refresh() {
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = @"SELECT * FROM jobposts";
+            cmd.CommandType = CommandType.Text;
+            OracleDataReader dr = cmd.ExecuteReader();
+            DataTable dataTable = new DataTable();
+            dataTable.Load(dr);
+            //DataSet tables = new DataSet();
+            //OracleDataAdapter Adapter = new OracleDataAdapter(cmd);
+            //Adapter.Fill(tables);
+            //jobsDataGridView.DataSource = tables.Tables[0];
+            jobsDataGridView.DataSource = dataTable;
+        }
+
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             OracleCommand cmd = new OracleCommand();
@@ -141,6 +151,7 @@ namespace Wuzzuf
             cmd.Parameters.Add("jobpost_id", jobPostID);
 
             cmd.ExecuteNonQuery();
+            refresh();
         }
 
         private void InsertButton_Click(object sender, EventArgs e)
@@ -167,13 +178,12 @@ namespace Wuzzuf
             // TODO connect to userinfo class in user form 
             OracleCommand cmd2 = new OracleCommand();
             cmd2.Connection = conn;
-            cmd2.CommandText = "select * from recruiters where id =:id";
+            cmd2.CommandText = "select * from recruiters where RECRUITERID =: userid";
             cmd2.CommandType = CommandType.Text;
-            UserInfo LoggedIn = User.userInfo;
 
-            if (LoggedIn != null)
+            if (User.userInfo != null)
             {
-                cmd2.Parameters.Add("id", LoggedIn.id);
+                cmd2.Parameters.Add("userid", int.Parse(User.userInfo.id));
                 OracleDataReader dr =  cmd2.ExecuteReader();
 
                 if(!dr.HasRows)
@@ -195,6 +205,8 @@ namespace Wuzzuf
             cmd.Parameters.Add("endDate", DateTime.Now);
 
             cmd.ExecuteNonQuery();
+            refresh();
+
         }
 
         string  ReverseLoadComboBox(ComboBox c1, string s1)
@@ -223,6 +235,8 @@ namespace Wuzzuf
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("jobpost_id", jobPostID);
             cmd.ExecuteNonQuery();
+            refresh();
+
         }
     }
 }
